@@ -10,20 +10,19 @@ import javafx.scene.paint.Color;
 public class GameController {
 
     @FXML
-    private BorderPane root;
-
-    @FXML
     private Canvas canvas;
 
+    private GameModel gameModel;
     public GameController() {  }
 
     @FXML
     void initialize() {
-        GraphicsContext gc = canvas.getGraphicsContext2D();
+        this.gameModel = GameModel.getInstance();
+        GraphicsContext gc = this.canvas.getGraphicsContext2D();
     }
 
     @FXML
-    void handleKeyPressed(KeyEvent event) { //TODO
+    void handleKeyPressed(KeyEvent event) { //TODO move to KeyboardHandler
         switch (event.getCode()) {
             case RIGHT:
                 break;

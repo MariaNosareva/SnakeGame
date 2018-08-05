@@ -8,7 +8,7 @@ public class GameModel {
     public BooleanProperty collision = new SimpleBooleanProperty(false);
     public ObjectPropertyBase<GameStatus> status = new SimpleObjectProperty<>(GameStatus.STOPPED);
     private IntegerProperty speed = new SimpleIntegerProperty(10);
-    private int gridSize = 15;
+    private int pointRadius = 15;
 
     private static GameModel ourInstance = new GameModel();
 
@@ -22,7 +22,11 @@ public class GameModel {
         this.speed = new SimpleIntegerProperty(speed);
     }
 
-    public void setGridSize(int gridSize) {
-        this.gridSize = gridSize;
+    public void setpointRadius(int pointRadius) {
+        this.pointRadius = pointRadius;
+    }
+
+    public int getpointRadius() {
+        return this.pointRadius;
     }
 }
