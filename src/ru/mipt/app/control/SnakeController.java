@@ -1,5 +1,6 @@
 package ru.mipt.app.control;
 
+import javafx.scene.canvas.GraphicsContext;
 import ru.mipt.app.model.Direction;
 import ru.mipt.app.model.Snake;
 

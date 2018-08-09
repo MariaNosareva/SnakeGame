@@ -10,7 +10,7 @@ public class Snake {
     private Direction currDirection;
     private Direction nextDirection;
 
-    Snake(GameModel gameModel) {
+    public Snake(GameModel gameModel) {
         this.setHead(new Point(20, 20));
         this.tail = new ArrayList<>();
         this.currDirection = gameModel.direction.get();
