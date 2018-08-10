@@ -13,6 +13,7 @@ public class Snake {
     public Snake(GameModel gameModel) {
         this.setHead(new Point(20, 20));
         this.tail = new ArrayList<>();
+        this.tail.add(new Point(21, 20));
         this.currDirection = gameModel.direction.get();
         this.setNextDirection(this.currDirection);
     }
@@ -40,5 +41,17 @@ public class Snake {
 
     public void setNextDirection(Direction nextDirection) {
         this.nextDirection = nextDirection;
+    }
+
+    public void setCurrDirection(Direction currDirection) {
+        this.currDirection = currDirection;
+    }
+
+    public Direction getCurrDirection() {
+        return this.currDirection;
+    }
+
+    public void setTail(List<Point> tail) {
+        this.tail = tail;
     }
 }

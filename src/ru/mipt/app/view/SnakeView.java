@@ -32,8 +32,7 @@ public class SnakeView {
 
     public GraphicsContext draw() {
 
-        GameModel model = GameModel.getInstance();
-        int radius = model.getpointRadius();
+        int radius = GameModel.getInstance().getpointRadius();
 
         if (this.currHead == this.nextHead) {
             if (this.currTail == this.nextTail) {
@@ -46,7 +45,7 @@ public class SnakeView {
             return this.gc;
         }
 
-        Point last = currTail.get(currTail.size() - 1); // maybe first??!
+        Point last = currTail.get(0); // maybe last??!
 
         this.gc.clearRect(last.getX(), last.getY(), radius, radius);
         this.gc.setFill(Color.LAWNGREEN);
