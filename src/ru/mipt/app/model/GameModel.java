@@ -5,7 +5,7 @@ import javafx.beans.property.*;
 
 public class GameModel {
 
-    public ObjectProperty<Direction> direction = new SimpleObjectProperty<>(Direction.RIGHT);
+    public ObjectProperty<Direction> direction = new SimpleObjectProperty<>(Direction.UP);
     public BooleanProperty collision = new SimpleBooleanProperty(false);
     public ObjectProperty<Animation.Status> status = new SimpleObjectProperty<>(Animation.Status.STOPPED);
     private IntegerProperty speed = new SimpleIntegerProperty(10);

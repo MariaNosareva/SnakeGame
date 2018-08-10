@@ -24,9 +24,8 @@ public class GameController {
         GraphicsContext gc = this.canvas.getGraphicsContext2D();
 
         Processor processor = new Processor();
-        Snake snake = new Snake(gameModel);
-        SnakeController snakeController = new SnakeController(snake, new SnakeView(gc, snake.getHead(),
-                                                                                    snake.getTail()), processor);
+        Snake snake = Snake.getInstance();
+        SnakeController snakeController = new SnakeController(new SnakeView(gc, snake.getHead(), snake.getTail()), processor);
 
         gameModel.status.setValue(Animation.Status.RUNNING);
         System.out.println(processor.getModelStatus());

@@ -13,8 +13,8 @@ public class SnakeController {
     private Snake snake;
     private SnakeView view;
 
-    SnakeController(Snake snake, SnakeView view, Processor processor) {
-        this.snake = snake;
+    SnakeController(SnakeView view, Processor processor) {
+        this.snake = Snake.getInstance();
         this.view = view;
 
         GameModel.getInstance().direction.addListener((observable, currDirection, nextDirection) ->
@@ -24,7 +24,13 @@ public class SnakeController {
     }
 
     public void move() {
-        System.out.println("it works");
+
+//        System.out.println(snake.getHead().getX() + " " + snake.getHead().getY());
+//        for (Point point: snake.getTail()) {
+//            System.out.println(point.getX() + " " + point.getY());
+//        }
+//        System.out.println("");
+
         snake.setCurrDirection(snake.getNextDirection());
         Point newHead = newHead(snake.getHead(), snake.getCurrDirection());
 
@@ -45,6 +51,7 @@ public class SnakeController {
         snake.setHead(newHead);
         snake.setTail(tail);
 
+
         view.setNextBody(newHead, tail);
         view.draw();
     }
@@ -57,18 +64,18 @@ public class SnakeController {
         switch (direction) {
             case UP:
                 newX = 0;
-                newY = -radius*2;
+                newY = -1;
                 break;
             case DOWN:
                 newX = 0;
-                newY = radius*2;
+                newY = 1;
                 break;
             case RIGHT:
-                newX = radius*2;
+                newX = 1;
                 newY = 0;
                 break;
             case LEFT:
-                newX = -radius*2;
+                newX = -1;
                 newY = 0;
                 break;
         }
