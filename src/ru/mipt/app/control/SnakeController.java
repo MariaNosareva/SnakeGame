@@ -13,15 +13,18 @@ public class SnakeController {
     private Snake snake;
     private SnakeView view;
 
-    SnakeController(Snake snake, SnakeView view) {
+    SnakeController(Snake snake, SnakeView view, Processor processor) {
         this.snake = snake;
         this.view = view;
 
         GameModel.getInstance().direction.addListener((observable, currDirection, nextDirection) ->
                 this.snake.setNextDirection(nextDirection));
+
+        processor.addAction(this::move);
     }
 
     public void move() {
+        System.out.println("it works");
         snake.setCurrDirection(snake.getNextDirection());
         Point newHead = newHead(snake.getHead(), snake.getCurrDirection());
 

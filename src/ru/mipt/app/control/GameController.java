@@ -1,5 +1,6 @@
 package ru.mipt.app.control;
 
+import javafx.animation.Animation;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -19,9 +20,15 @@ public class GameController {
     @FXML
     void initialize() {
         this.gameModel = GameModel.getInstance();
+        System.out.println(gameModel.direction);
         GraphicsContext gc = this.canvas.getGraphicsContext2D();
-        Snake snake = new Snake(gameModel);
-        SnakeController snakeController = new SnakeController(snake, new SnakeView(gc, snake.getHead(), snake.getTail()));
 
+        Processor processor = new Processor();
+        Snake snake = new Snake(gameModel);
+        SnakeController snakeController = new SnakeController(snake, new SnakeView(gc, snake.getHead(),
+                                                                                    snake.getTail()), processor);
+
+        gameModel.status.setValue(Animation.Status.RUNNING);
+        System.out.println(processor.getModelStatus());
     }
 }

@@ -1,14 +1,15 @@
 package ru.mipt.app.control.listeners;
 
+import javafx.animation.Animation;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import ru.mipt.app.model.GameStatus;
 
-public class StatusChangeListener implements ChangeListener<GameStatus> {
+public class StatusChangeListener implements ChangeListener<Animation.Status> {
     @Override
-    public void changed(ObservableValue<? extends GameStatus> observableValue, GameStatus gameStatus, GameStatus currStatus) {
+    public void changed(ObservableValue<? extends Animation.Status> observableValue, Animation.Status gameStatus,
+                        Animation.Status currStatus) {
         switch (currStatus) {
-            case PLAYING:
+            case RUNNING:
                 // TODO start game
                 break;
             case PAUSED:

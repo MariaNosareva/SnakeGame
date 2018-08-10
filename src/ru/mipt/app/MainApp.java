@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import ru.mipt.app.control.listeners.KeyboardListener;
 import ru.mipt.app.model.GameModel;
 
 import java.io.IOException;
@@ -37,6 +38,8 @@ public class MainApp extends Application {
             rootLayout = loader.load();
 
             Scene scene = new Scene(rootLayout);
+
+            scene.setOnKeyPressed(new KeyboardListener());
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException e) {

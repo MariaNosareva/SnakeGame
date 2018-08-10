@@ -1,12 +1,13 @@
 package ru.mipt.app.model;
 
+import javafx.animation.Animation;
 import javafx.beans.property.*;
 
 public class GameModel {
 
     public ObjectProperty<Direction> direction = new SimpleObjectProperty<>(Direction.RIGHT);
     public BooleanProperty collision = new SimpleBooleanProperty(false);
-    public ObjectPropertyBase<GameStatus> status = new SimpleObjectProperty<>(GameStatus.STOPPED);
+    public ObjectProperty<Animation.Status> status = new SimpleObjectProperty<>(Animation.Status.STOPPED);
     private IntegerProperty speed = new SimpleIntegerProperty(10);
     private int pointRadius = 15;
 

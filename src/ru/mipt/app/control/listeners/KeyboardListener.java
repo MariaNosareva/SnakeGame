@@ -1,18 +1,18 @@
 package ru.mipt.app.control.listeners;
 
+import javafx.animation.Animation;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import ru.mipt.app.model.Direction;
 import ru.mipt.app.model.GameModel;
-import ru.mipt.app.model.GameStatus;
 
 public class KeyboardListener implements EventHandler<KeyEvent> {
 
     private GameModel gameModel;
 
-    KeyboardListener(GameModel model) {
-        this.gameModel = model;
+    public KeyboardListener() {
+        this.gameModel = GameModel.getInstance();
     }
 
     @Override
@@ -40,7 +40,7 @@ public class KeyboardListener implements EventHandler<KeyEvent> {
                 }
                 break;
             case ESCAPE:
-                gameModel.status.set(GameStatus.STOPPED);
+                gameModel.status.set(Animation.Status.STOPPED);
                 System.exit(0);
                 break;
         }
