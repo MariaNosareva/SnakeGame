@@ -30,25 +30,10 @@ public class SnakeView {
     public void setNextBody(Point head, List<Point> tail) {
         this.nextHead = head;
         this.nextTail = tail;
-
-//        for (Point point: currTail) {
-//            System.out.println(point.getX() + " " + point.getY());
-//        }
-//        for (Point point: nextTail) {
-//            System.out.println(point.getX() + " " + point.getY());
-//        }
     }
 
     public GraphicsContext draw() {
-        System.out.println("draw");
         int radius = GameModel.getInstance().getpointRadius();
-
-//        for (Point point: currTail) {
-//            System.out.println(point.getX() + " " + point.getY());
-//        }
-//        for (Point point: nextTail) {
-//            System.out.println(point.getX() + " " + point.getY());
-//        }
 
         if (this.currHead == this.nextHead) {
             if (this.currTail == this.nextTail) {
@@ -66,6 +51,10 @@ public class SnakeView {
         this.gc.clearRect(last.getX(), last.getY(), radius, radius);
         this.gc.setFill(Color.GREEN);
         this.gc.fillOval(this.nextHead.getX(), this.nextHead.getY(), radius, radius);
+        this.gc.fillOval(this.nextTail.get(0).getX(), this.nextTail.get(0).getY(), radius, radius);
+
+        this.currHead = this.nextHead;
+        this.currTail = this.nextTail;
 
         return this.gc;
     }

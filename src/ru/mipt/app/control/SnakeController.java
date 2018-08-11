@@ -7,6 +7,7 @@ import ru.mipt.app.model.Point;
 import ru.mipt.app.model.Snake;
 import ru.mipt.app.view.SnakeView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SnakeController {
@@ -24,13 +25,6 @@ public class SnakeController {
     }
 
     public void move() {
-
-//        System.out.println(snake.getHead().getX() + " " + snake.getHead().getY());
-//        for (Point point: snake.getTail()) {
-//            System.out.println(point.getX() + " " + point.getY());
-//        }
-//        System.out.println("");
-
         snake.setCurrDirection(snake.getNextDirection());
         Point newHead = newHead(snake.getHead(), snake.getCurrDirection());
 
@@ -45,15 +39,19 @@ public class SnakeController {
         //    tail.add(head)
         // else
 
-        List<Point> tail = snake.getTail();
+        List<Point> tail = new ArrayList<>(snake.getTail());
+
         tail.remove(0);
         tail.add(snake.getHead());
-        snake.setHead(newHead);
-        snake.setTail(tail);
 
+        System.out.println(newHead.getX() + " " + newHead.getY());
 
         view.setNextBody(newHead, tail);
         view.draw();
+
+        snake.setHead(newHead);
+        snake.setTail(tail);
+
     }
 
     private Point newHead(Point oldHead, Direction direction) {

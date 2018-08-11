@@ -20,9 +20,6 @@ public class StatusChangeListener implements ChangeListener<Animation.Status> {
             case RUNNING:
                 processor.run();
                 break;
-            case PAUSED:
-                processor.pause();
-                break;
             case STOPPED:
                 processor.stop();
                 break;

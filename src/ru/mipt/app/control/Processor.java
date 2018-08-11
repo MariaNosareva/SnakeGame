@@ -18,14 +18,14 @@ public class Processor {
     private List<Runnable> actions = new ArrayList<>();
 
     public Processor() {
-        model.collision.addListener(new CollisionListener());
 
-        timeline = new Timeline(new KeyFrame(Duration.millis(500), event ->
+        timeline = new Timeline(new KeyFrame(Duration.millis(800), event ->
                 actions.forEach(Runnable::run)));
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.statusProperty().addListener((observable, oldStatus, newStatus) ->
                 model.status.set(newStatus));
         model.status.addListener(new StatusChangeListener(this));
+        model.collision.addListener(new CollisionListener(this));
     }
 
     public Animation.Status getModelStatus() {
@@ -42,9 +42,5 @@ public class Processor {
 
     public void stop() {
         timeline.stop();
-    }
-
-    public void pause() {
-        timeline.pause();
     }
 }

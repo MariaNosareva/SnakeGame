@@ -18,6 +18,7 @@ public class KeyboardListener implements EventHandler<KeyEvent> {
     @Override
     public void handle(KeyEvent keyEvent) {
         KeyCode keyCode = keyEvent.getCode();
+
         switch (keyCode) {
             case UP:
                 if (gameModel.direction.get() != Direction.DOWN) {
