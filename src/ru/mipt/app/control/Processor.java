@@ -19,7 +19,7 @@ public class Processor {
 
     public Processor() {
 
-        timeline = new Timeline(new KeyFrame(Duration.millis(800), event ->
+        timeline = new Timeline(new KeyFrame(Duration.millis(500), event ->
                 actions.forEach(Runnable::run)));
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.statusProperty().addListener((observable, oldStatus, newStatus) ->

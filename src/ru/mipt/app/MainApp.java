@@ -27,8 +27,8 @@ public class MainApp extends Application {
         this.primaryStage.setTitle("Snake game");
         this.primaryStage.setMinHeight(600);
         this.primaryStage.setMinWidth(600);
-        this.primaryStage.setMaxHeight(600);
-        this.primaryStage.setMaxWidth(600);
+        this.primaryStage.setMaxHeight(610);
+        this.primaryStage.setMaxWidth(610);
     }
 
     public void initRootLayout() {

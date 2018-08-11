@@ -16,10 +16,10 @@ public class Snake {
     }
 
     private Snake() {
-        this.setHead(new Point(120, 120));
+        this.setHead(new Point(160, 160));
         this.tail = new ArrayList<>();
-        this.tail.add(new Point(120, 160));
-        this.tail.add(new Point(120, 140));
+        this.tail.add(new Point(160, 200));
+        this.tail.add(new Point(160, 180));
         this.currDirection = GameModel.getInstance().direction.get();
         this.setNextDirection(this.currDirection);
     }

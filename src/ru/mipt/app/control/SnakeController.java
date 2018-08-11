@@ -18,18 +18,17 @@ public class SnakeController {
         this.snake = Snake.getInstance();
         this.view = view;
 
-        GameModel.getInstance().direction.addListener((observable, currDirection, nextDirection) ->
-                this.snake.setNextDirection(nextDirection));
-
         processor.addAction(this::move);
     }
 
     public void move() {
+
+        this.setNewDirection(GameModel.getInstance().direction.get());
         snake.setCurrDirection(snake.getNextDirection());
         Point newHead = newHead(snake.getHead(), snake.getCurrDirection());
 
         if (newHead.getY() < 0 || newHead.getX() < 0 ||
-                newHead.getX() >= 581 || newHead.getY() >= 581 ||
+                newHead.getX() >= 561 || newHead.getY() >= 561 ||
                 snake.getTail().contains(newHead)) {
             GameModel.getInstance().collision.set(true);
             return;
@@ -40,11 +39,8 @@ public class SnakeController {
         // else
 
         List<Point> tail = new ArrayList<>(snake.getTail());
-
         tail.remove(0);
         tail.add(snake.getHead());
-
-        System.out.println(newHead.getX() + " " + newHead.getY());
 
         view.setNextBody(newHead, tail);
         view.draw();
@@ -79,5 +75,16 @@ public class SnakeController {
         }
 
         return new Point(oldHead.getX() + newX, oldHead.getY() + newY);
+    }
+
+    public void setNewDirection(Direction newDirection) {
+
+        if (newDirection == Direction.LEFT && snake.getCurrDirection() != Direction.RIGHT ||
+                newDirection == Direction.RIGHT && snake.getCurrDirection() != Direction.LEFT ||
+                newDirection == Direction.UP && snake.getCurrDirection() != Direction.DOWN ||
+                newDirection == Direction.DOWN && snake.getCurrDirection() != Direction.UP) {
+
+            snake.setNextDirection(newDirection);
+        }
     }
 }
