@@ -35,7 +35,7 @@ public class SnakeController {
         Point newHead = newHead(snake.getHead(), snake.getCurrDirection());
 
         if (newHead.getY() < 0 || newHead.getX() < 0 ||
-                newHead.getX() >= 40 || newHead.getY() >= 40 ||
+                newHead.getX() >= 581 || newHead.getY() >= 581 ||
                 snake.getTail().contains(newHead)) {
             GameModel.getInstance().collision.set(true);
             return;
@@ -64,18 +64,18 @@ public class SnakeController {
         switch (direction) {
             case UP:
                 newX = 0;
-                newY = -1;
+                newY = -radius;
                 break;
             case DOWN:
                 newX = 0;
-                newY = 1;
+                newY = radius;
                 break;
             case RIGHT:
-                newX = 1;
+                newX = radius;
                 newY = 0;
                 break;
             case LEFT:
-                newX = -1;
+                newX = -radius;
                 newY = 0;
                 break;
         }

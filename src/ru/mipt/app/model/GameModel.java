@@ -9,7 +9,7 @@ public class GameModel {
     public BooleanProperty collision = new SimpleBooleanProperty(false);
     public ObjectProperty<Animation.Status> status = new SimpleObjectProperty<>(Animation.Status.STOPPED);
     private IntegerProperty speed = new SimpleIntegerProperty(10);
-    private int pointRadius = 15;
+    private int pointRadius = 20;
 
     private static GameModel ourInstance = new GameModel();
 
