@@ -9,7 +9,7 @@ public class Point {
         this.setY(y);
     }
 
-    Point() {
+    public Point() {
         setX(0);
         setY(0);
     }
