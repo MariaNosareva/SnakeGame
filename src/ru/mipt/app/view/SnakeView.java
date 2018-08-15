@@ -38,9 +38,9 @@ public class SnakeView {
         if (this.currHead == this.nextHead) {
             if (this.currTail == this.nextTail) {
                 this.gc.setFill(Color.GREEN);
-                this.gc.fillOval(this.currHead.getX(), this.currHead.getY(), radius, radius);
+                this.gc.fillOval(this.currHead.getX(), this.currHead.getY(), radius*2, radius*2);
                 for (Point point: this.currTail) {
-                    this.gc.fillOval(point.getX(), point.getY(), radius, radius);
+                    this.gc.fillOval(point.getX(), point.getY(), radius*2, radius*2);
                 }
             }
             return this.gc;
@@ -48,10 +48,12 @@ public class SnakeView {
 
         Point last = currTail.get(0); // maybe last??!
 
-        this.gc.clearRect(last.getX(), last.getY(), radius, radius);
+        this.gc.clearRect(last.getX(), last.getY(), radius*2, radius*2);
+        this.gc.clearRect(nextHead.getX(), nextHead.getY(), radius*2, radius*2);
+
         this.gc.setFill(Color.GREEN);
-        this.gc.fillOval(this.nextHead.getX(), this.nextHead.getY(), radius, radius);
-        this.gc.fillOval(this.nextTail.get(0).getX(), this.nextTail.get(0).getY(), radius, radius);
+        this.gc.fillOval(this.nextHead.getX(), this.nextHead.getY(), radius*2, radius*2);
+        this.gc.fillOval(this.nextTail.get(0).getX(), this.nextTail.get(0).getY(), radius*2, radius*2);
 
         this.currHead = this.nextHead;
         this.currTail = this.nextTail;

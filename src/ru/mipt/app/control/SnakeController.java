@@ -58,18 +58,18 @@ public class SnakeController {
         switch (direction) {
             case UP:
                 newX = 0;
-                newY = -radius;
+                newY = -radius*2;
                 break;
             case DOWN:
                 newX = 0;
-                newY = radius;
+                newY = radius*2;
                 break;
             case RIGHT:
-                newX = radius;
+                newX = radius*2;
                 newY = 0;
                 break;
             case LEFT:
-                newX = -radius;
+                newX = -radius*2;
                 newY = 0;
                 break;
         }

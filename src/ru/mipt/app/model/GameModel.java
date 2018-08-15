@@ -8,8 +8,10 @@ public class GameModel {
     public ObjectProperty<Direction> direction = new SimpleObjectProperty<>(Direction.UP);
     public BooleanProperty collision = new SimpleBooleanProperty(false);
     public ObjectProperty<Animation.Status> status = new SimpleObjectProperty<>(Animation.Status.STOPPED);
+    public BooleanProperty fruit = new SimpleBooleanProperty(false);
+    // public BooleanProperty surprise = new SimpleBooleanProperty(false);
     private IntegerProperty speed = new SimpleIntegerProperty(10);
-    private int pointRadius = 20;
+    private int pointRadius = 10;
 
     private static GameModel ourInstance = new GameModel();
 

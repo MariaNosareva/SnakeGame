@@ -6,7 +6,7 @@ public class Food extends Point {
 
     private Color color;
 
-    public Food(ColorImpl color) {
+    public Food(Color color) {
         super(0, 0);
         this.color = color;
     }
