@@ -28,7 +28,7 @@ public class SnakeController {
         Point newHead = newHead(snake.getHead(), snake.getCurrDirection());
 
         if (newHead.getY() < 0 || newHead.getX() < 0 ||
-                newHead.getX() >= 561 || newHead.getY() >= 561 ||
+                newHead.getX() >= 591 || newHead.getY() >= 561 ||
                 snake.getTail().contains(newHead)) {
             GameModel.getInstance().collision.set(true);
             return;
