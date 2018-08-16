@@ -1,27 +1,47 @@
 package ru.mipt.app.control;
 
-import javafx.scene.paint.Color;
+import ru.mipt.app.model.GameModel;
 import ru.mipt.app.model.Point;
 import ru.mipt.app.model.Snake;
-import ru.mipt.app.model.food.ColorImpl;
-import ru.mipt.app.model.food.Food;
+import ru.mipt.app.view.food.FruitView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class FruitController {
 
     private Snake snake = Snake.getInstance();
-    private final Food fruit = new Food(new ColorImpl(Color.LIGHTCORAL));
-    // private final Food surprise = new Food(new ColorImpl(Color.TOMATO));
+    private FruitView view;
 
-    public FruitController(Processor processor) { // TODO FruitView view
+    public FruitController(FruitView view, Processor processor) {
+        this.view = view;
 
-        // TODO processor.addAction(this::changeFruitPosition); не каждый frame!
+        processor.addAction(this::changeFruitPosition);
     }
 
     public void changeFruitPosition() {
+
+        System.out.println("changeFruitPosition");
+
         Point head = snake.getHead();
         List<Point> tail = new ArrayList<>(snake.getTail());
+
+        if (GameModel.getInstance().fruit.get()) {
+            return;
+        }
+
+        Random random = new Random();
+        Point newFruitPosition = new Point();
+        do {
+            int randomX = random.nextInt(29) * 20;
+            int randomY = random.nextInt(27) * 20;
+            newFruitPosition.setX(randomX);
+            newFruitPosition.setY(randomY);
+        } while (head == newFruitPosition || tail.contains(newFruitPosition));
+
+        view.drawFruit(newFruitPosition.getX(), newFruitPosition.getY());
+        GameModel.getInstance().fruit.setValue(true);
+        GameModel.getInstance().setFoodPosition(newFruitPosition);
     }
 }

@@ -8,6 +8,8 @@ import ru.mipt.app.model.GameModel;
 import ru.mipt.app.model.Point;
 import ru.mipt.app.model.Snake;
 import ru.mipt.app.view.SnakeView;
+import ru.mipt.app.view.food.RectangularFruitView;
+import ru.mipt.app.view.food.RectangularFruitViewBuilder;
 
 public class GameController {
 
@@ -26,6 +28,11 @@ public class GameController {
         Processor processor = new Processor();
         Snake snake = Snake.getInstance();
         SnakeController snakeController = new SnakeController(new SnakeView(gc, snake.getHead(), snake.getTail()), processor);
+
+        RectangularFruitView view = (new RectangularFruitViewBuilder(GameModel.getInstance().getFoodColor(), gc)
+                                    .setSquare(true)
+                                    .setRhombus(true)).build();
+        FruitController fruitController = new FruitController(view, processor);
 
         gameModel.status.setValue(Animation.Status.RUNNING);
         System.out.println(processor.getModelStatus());
