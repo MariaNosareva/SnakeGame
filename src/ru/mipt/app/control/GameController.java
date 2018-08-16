@@ -22,7 +22,6 @@ public class GameController {
     @FXML
     void initialize() {
         this.gameModel = GameModel.getInstance();
-        System.out.println(gameModel.direction);
         GraphicsContext gc = this.canvas.getGraphicsContext2D();
 
         Processor processor = new Processor();
@@ -35,6 +34,5 @@ public class GameController {
         FruitController fruitController = new FruitController(view, processor);
 
         gameModel.status.setValue(Animation.Status.RUNNING);
-        System.out.println(processor.getModelStatus());
     }
 }

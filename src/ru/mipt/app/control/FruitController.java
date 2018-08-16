@@ -22,8 +22,6 @@ public class FruitController {
 
     public void changeFruitPosition() {
 
-        System.out.println("changeFruitPosition");
-
         Point head = snake.getHead();
         List<Point> tail = new ArrayList<>(snake.getTail());
 
