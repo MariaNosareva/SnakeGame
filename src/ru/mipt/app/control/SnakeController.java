@@ -30,6 +30,7 @@ public class SnakeController {
         if (newHead.getY() < 0 || newHead.getX() < 0 ||
                 newHead.getX() >= 581 || newHead.getY() >= 561 ||
                 snake.getTail().contains(newHead)) {
+            // TODO contains не работает - оператор равенства
             GameModel.getInstance().collision.set(true);
             return;
         }

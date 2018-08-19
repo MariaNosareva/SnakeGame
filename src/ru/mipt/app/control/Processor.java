@@ -5,10 +5,14 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.util.Duration;
 import ru.mipt.app.control.listeners.CollisionListener;
+import ru.mipt.app.control.listeners.EventListener;
 import ru.mipt.app.control.listeners.StatusChangeListener;
 import ru.mipt.app.model.GameModel;
 
+import javax.swing.*;
+import java.awt.event.ActionEvent;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Processor {
@@ -19,8 +23,7 @@ public class Processor {
 
     public Processor() {
 
-        timeline = new Timeline(new KeyFrame(Duration.millis(400), event ->
-                actions.forEach(Runnable::run)));
+        timeline = new Timeline(new KeyFrame(Duration.millis(400), new EventListener(actions)));
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.statusProperty().addListener((observable, oldStatus, newStatus) ->
                 model.status.set(newStatus));
