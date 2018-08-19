@@ -1,5 +1,6 @@
-package ru.mipt.app.control;
+package ru.mipt.app.control.food;
 
+import ru.mipt.app.control.Processor;
 import ru.mipt.app.model.GameModel;
 import ru.mipt.app.model.Point;
 import ru.mipt.app.model.Snake;
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class FruitController {
+public class FruitController implements FoodController {
 
     private Snake snake = Snake.getInstance();
     private FruitView view;
@@ -38,6 +39,7 @@ public class FruitController {
             newFruitPosition.setY(randomY);
         } while (head == newFruitPosition || tail.contains(newFruitPosition));
 
+        view.setColor(GameModel.getInstance().getFoodColor());
         view.drawFruit(newFruitPosition.getX(), newFruitPosition.getY());
         GameModel.getInstance().fruit.setValue(true);
         GameModel.getInstance().setFoodPosition(newFruitPosition);

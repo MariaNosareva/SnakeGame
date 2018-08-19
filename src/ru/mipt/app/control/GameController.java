@@ -4,8 +4,10 @@ import javafx.animation.Animation;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import ru.mipt.app.control.food.ChangeFruitColorDecorator;
+import ru.mipt.app.control.food.FoodController;
+import ru.mipt.app.control.food.FruitController;
 import ru.mipt.app.model.GameModel;
-import ru.mipt.app.model.Point;
 import ru.mipt.app.model.Snake;
 import ru.mipt.app.view.SnakeView;
 import ru.mipt.app.view.food.RectangularFruitView;
@@ -31,7 +33,7 @@ public class GameController {
         RectangularFruitView view = (new RectangularFruitViewBuilder(GameModel.getInstance().getFoodColor(), gc)
                                     .setSquare(true)
                                     .setRhombus(true)).build();
-        FruitController fruitController = new FruitController(view, processor);
+        FoodController fruitController = new ChangeFruitColorDecorator(new FruitController(view, processor));
 
         gameModel.status.setValue(Animation.Status.RUNNING);
     }
