@@ -14,6 +14,18 @@ public class Point {
         setY(0);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null) {
+            return false;
+        }
+        Point other = (Point) o;
+        if (x == other.getX() && y == other.getY()) {
+            return true;
+        }
+        return false;
+    }
+
     public int getX() {
         return x;
     }

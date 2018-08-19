@@ -46,7 +46,7 @@ public class SnakeView {
             return this.gc;
         }
 
-        Point last = currTail.get(0); // maybe last??!
+        Point last = currTail.get(0);
 
         this.gc.clearRect(last.getX(), last.getY(), radius*2, radius*2);
         this.gc.clearRect(nextHead.getX(), nextHead.getY(), radius*2, radius*2);
