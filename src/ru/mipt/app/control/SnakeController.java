@@ -27,7 +27,7 @@ public class SnakeController {
         Point newHead = newHead(snake.getHead(), snake.getCurrDirection());
 
         if (newHead.getY() < 0 || newHead.getX() < 0 ||
-                newHead.getX() >= 581 || newHead.getY() >= 561 ||
+                newHead.getX() >= 581 || newHead.getY() >= 581 ||
                 snake.getTail().contains(newHead)) {
             GameModel.getInstance().collision.set(true);
             return;
@@ -37,7 +37,9 @@ public class SnakeController {
         List<Point> tail = new ArrayList<>(snake.getTail());
 
         if (newHead.getX() == food.getX() && newHead.getY() == food.getY()) {
-            GameModel.getInstance().fruit.set(false);
+            GameModel model = GameModel.getInstance();
+            model.fruit.set(false);
+            model.score.setValue(model.score.get() + 1);
         } else {
             tail.remove(0);
         }
