@@ -1,6 +1,5 @@
 package ru.mipt.app.control;
 
-import javafx.scene.canvas.GraphicsContext;
 import ru.mipt.app.model.Direction;
 import ru.mipt.app.model.GameModel;
 import ru.mipt.app.model.Point;

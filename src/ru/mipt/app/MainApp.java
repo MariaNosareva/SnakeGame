@@ -6,7 +6,6 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import ru.mipt.app.control.listeners.KeyboardListener;
-import ru.mipt.app.model.GameModel;
 
 import java.io.IOException;
 

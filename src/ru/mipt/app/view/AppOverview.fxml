@@ -3,7 +3,6 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.canvas.Canvas?>
 
-<!--onMouseEntered="#handleMouseEntered"-->
 <BorderPane fx:id="root"
             fx:controller="ru.mipt.app.control.GameController"
             xmlns="http://javafx.com/javafx"

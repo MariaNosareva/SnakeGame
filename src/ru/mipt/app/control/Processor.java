@@ -9,10 +9,7 @@ import ru.mipt.app.control.listeners.EventListener;
 import ru.mipt.app.control.listeners.StatusChangeListener;
 import ru.mipt.app.model.GameModel;
 
-import javax.swing.*;
-import java.awt.event.ActionEvent;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class Processor {

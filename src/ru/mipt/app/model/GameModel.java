@@ -11,7 +11,6 @@ public class GameModel {
     public BooleanProperty collision = new SimpleBooleanProperty(false);
     public ObjectProperty<Animation.Status> status = new SimpleObjectProperty<>(Animation.Status.STOPPED);
     public BooleanProperty fruit = new SimpleBooleanProperty(false);
-    // public BooleanProperty surprise = new SimpleBooleanProperty(false);
     private IntegerProperty speed = new SimpleIntegerProperty(10);
     private int pointRadius = 10;
     private Point foodPosition = new Point(200, 200);
