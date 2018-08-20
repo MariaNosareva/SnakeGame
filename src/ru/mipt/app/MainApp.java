@@ -4,6 +4,8 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.BorderPaneBuilder;
+import javafx.stage.Popup;
 import javafx.stage.Stage;
 import ru.mipt.app.control.listeners.KeyboardListener;
 
@@ -24,9 +26,9 @@ public class MainApp extends Application {
         initRootLayout();
 
         this.primaryStage.setTitle("Snake game");
-        this.primaryStage.setMinHeight(600);
+        this.primaryStage.setMinHeight(680);
         this.primaryStage.setMinWidth(600);
-        this.primaryStage.setMaxHeight(610);
+        this.primaryStage.setMaxHeight(690);
         this.primaryStage.setMaxWidth(610);
     }
 

@@ -3,6 +3,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.canvas.Canvas?>
 
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 <BorderPane fx:id="root"
             fx:controller="ru.mipt.app.control.GameController"
             xmlns="http://javafx.com/javafx"
@@ -10,4 +13,16 @@
     <center>
         <Canvas fx:id="canvas" height="600.0" width="600.0" BorderPane.alignment="CENTER" />
     </center>
+    <bottom>
+        <StackPane prefHeight="50.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+            <children>
+                <Rectangle fill="lightsteelblue" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="600.0" />
+                <Text fx:id="score" strokeType="OUTSIDE" fill="aliceblue" strokeWidth="0.0" text="Score: 0" textAlignment="CENTER">
+                    <font>
+                        <Font name="Arial" size="22.0"/>
+                    </font>
+                </Text>
+            </children>
+        </StackPane>
+    </bottom>
 </BorderPane>
